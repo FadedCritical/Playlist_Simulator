@@ -1,10 +1,12 @@
-public class Song {
-    private String songName;
-    private String durationInSeconds;
-    private String artistName;
-    private int genre;
+import java.util.Iterator;
 
-    public Song(String songName, String durationInSeconds, String artistName, int genre) {
+public class Song implements Iterable<Song> {
+    private String songName;
+    private int durationInSeconds;
+    private String artistName;
+    private String genre;
+
+    public Song(String songName, int durationInSeconds, String artistName, String genre) {
         this.songName = songName;
         this.durationInSeconds = durationInSeconds;
         this.artistName = artistName;
@@ -15,15 +17,15 @@ public class Song {
         return songName;
     }
 
-    public String GetdurationInSeconds() {
-        return durationInSecondst;
+    public int GetdurationInSeconds() {
+        return durationInSeconds;
     }
 
     public String GetArtistName() {
         return artistName;
     }
 
-    public int GetGenre() {
+    public String GetGenre() {
         return genre;
     }
 
@@ -31,9 +33,30 @@ public class Song {
     public String toString() {
         return "Song{" +
                 "Song: " + songName + '\'' +
-                ", Duration: " + durationInSeconds + 'seconds\'' +
-                ", Artist:'" + artist + '\'' +
+                ", Duration: " + durationInSeconds + " seconds\'" +
+                ", Artist:" + artistName + '\'' +
                 ", Genre:" + genre +
                 '}';
+    }
+
+    @Override
+    public Iterator<Song> iterator() {
+        return new Iterator<Song>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < 1;
+            }
+
+            @Override
+            public Song next() {
+                if (!hasNext()) {
+                    throw new IllegalStateException("No more elements");
+                }
+                index++;
+                return Song.this;
+            }
+        };
     }
 }

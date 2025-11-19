@@ -5,11 +5,17 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        ArrayList<Song> songs;
         try {
-            ArrayList<Song> songs = getSongs("songs_list.csv");
+            songs = getSongs("Playslist_Simulator\\songs_list.csv");
+            for (Song song : songs) {
+                System.out.println(song.toString());
+            }
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         }
+
+        
     }
 
     
@@ -18,8 +24,15 @@ public class App {
         Scanner scanner = new Scanner(new File(filePath));
         scanner.useDelimiter(",");
         scanner.nextLine(); // Skip header line
-        while (scanner.hasNext()) {
-            songs.add(new Song(scanner.next(), scanner.next(), scanner.next(), scanner.nextInt()));
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] attributes = line.split(",");
+            String songName = attributes[0];
+            int durationInSeconds = Integer.parseInt(attributes[1]);
+            String artistName = attributes[2];
+            String genre = attributes[3];
+            Song song = new Song(songName, durationInSeconds, artistName, genre);
+            songs.add(song);
         }
         scanner.close();
         return songs;
