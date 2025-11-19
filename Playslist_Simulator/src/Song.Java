@@ -15,25 +15,25 @@ public class Song {
         return songName;
     }
 
-    public String getArtist() {
-        return artisdurationInSecondst;
+    public String getdurationInSeconds() {
+        return durationInSecondst;
     }
 
-    public String getAlbum() {
-        return album;
+    public String getartistName() {
+        return artistName;
     }
 
-    public int getYear() {
-        return year;
+    public int getgenre() {
+        return genre;
     }
 
     @Override
     public String toString() {
         return "Song{" +
-                "Song Name='" + songName + '\'' +
-                ", duration='" + durationInSeconds + '\'' +
-                ", album='" + album + '\'' +
-                ", year=" + year +
+                "Song: " + songName + '\'' +
+                ", Duration: " + durationInSeconds + 'seconds\'' +
+                ", Artist:'" + album + '\'' +
+                ", Genre:" + year +
                 '}';
     }
 }
