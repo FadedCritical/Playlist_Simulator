@@ -5,7 +5,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ArrayList<Song> songs = getSongs("songs.csv");
+        ArrayList<Song> songs = getSongs("Playslist_Simulator\\songs_list.csv");
+        for (Song song : songs) {
+            System.out.println(song.toString());
+        }
 
     }
 
