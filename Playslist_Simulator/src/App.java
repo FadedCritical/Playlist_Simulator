@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         try {
-            ArrayList<Song> songs = new ArrayList<>();
+            ArrayList<Song> songs = getSongs("songs_list.csv");
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         }
     }
 
     
-    public ArrayList<Song> getSongs(String filePath) throws FileNotFoundException {
+    public static  ArrayList<Song> getSongs(String filePath) throws FileNotFoundException {
         ArrayList<Song> songs = new ArrayList<>();
         Scanner scanner = new Scanner(new File(filePath));
         scanner.useDelimiter(",");
