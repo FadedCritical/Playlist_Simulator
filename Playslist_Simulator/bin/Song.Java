@@ -7,33 +7,33 @@ public class Song {
     public Song(String songName, String durationInSeconds, String artistName, int genre) {
         this.songName = songName;
         this.durationInSeconds = durationInSeconds;
-        this.album = album;
-        this.year = year;
+        this.artistName = artistName;
+        this.genre = genre;
     }
 
-    public String getSongName() {
+    public String GetSongName() {
         return songName;
     }
 
-    public String getArtist() {
-        return artisdurationInSecondst;
+    public String GetdurationInSeconds() {
+        return durationInSecondst;
     }
 
-    public String getAlbum() {
-        return album;
+    public String GetArtistName() {
+        return artistName;
     }
 
-    public int getYear() {
-        return year;
+    public int GetGenre() {
+        return genre;
     }
 
     @Override
     public String toString() {
         return "Song{" +
-                "Song Name='" + songName + '\'' +
-                ", duration='" + durationInSeconds + '\'' +
-                ", album='" + album + '\'' +
-                ", year=" + year +
+                "Song: " + songName + '\'' +
+                ", Duration: " + durationInSeconds + 'seconds\'' +
+                ", Artist:'" + artist + '\'' +
+                ", Genre:" + genre +
                 '}';
     }
 }
