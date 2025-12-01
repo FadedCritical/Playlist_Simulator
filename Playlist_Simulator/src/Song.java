@@ -1,10 +1,10 @@
 import java.util.Iterator;
 
 public class Song implements Iterable<Song> {
-    private String songName;
-    private int durationInSeconds;
-    private String artistName;
-    private String genre;
+    private final String songName;
+    private final int durationInSeconds;
+    private final String artistName;
+    private final String genre;
 
     public Song(String songName, int durationInSeconds, String artistName, String genre) {
         this.songName = songName;

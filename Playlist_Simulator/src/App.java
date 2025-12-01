@@ -1,49 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) throws Exception {
-        String filePath = "Playlist_Simulator\\songs_list.csv";
-        ArrayList<Song> songs = getSongs(filePath);
-
-        // Something happened with the file path, try alternative paths
-        if (songs == null) {
-            filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
-            songs = getSongs(filePath);
-        }
-        if (songs == null) {
-            filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
-            songs = getSongs(filePath);
-        }
-        for (Song song : songs) {
-            System.out.println(song.toString());
-        }
-
-    }
-
-    public static ArrayList<Song> getSongs(String filePath) throws FileNotFoundException {
-        try {
-            ArrayList<Song> songs = new ArrayList<>();
-            Scanner scanner = new Scanner(new File(filePath));
-            scanner.useDelimiter(",");
-            scanner.nextLine(); // Skip header line
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] attributes = line.split(",");
-                String songName = attributes[0];
-                int durationInSeconds = Integer.parseInt(attributes[1]);
-                String artistName = attributes[2];
-                String genre = attributes[3];
-                Song song = new Song(songName, durationInSeconds, artistName, genre);
-                songs.add(song);
-            }
-            scanner.close();
-            return songs;
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
-        }
-        return null;
+        PlaylistManager playlistManager = new PlaylistManager();
     }
 }
