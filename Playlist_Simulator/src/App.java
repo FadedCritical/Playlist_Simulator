@@ -7,6 +7,14 @@ public class App {
     public static void main(String[] args) throws Exception {
         String filePath = "Playlist_Simulator\\songs_list.csv";
         ArrayList<Song> songs = getSongs(filePath);
+        if (songs == null) {
+            filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
+            songs = getSongs(filePath);
+        }
+        if (songs == null) {
+            filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
+            songs = getSongs(filePath);
+        }
         for (Song song : songs) {
             System.out.println(song.toString());
         }
