@@ -7,6 +7,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         String filePath = "Playlist_Simulator\\songs_list.csv";
         ArrayList<Song> songs = getSongs(filePath);
+
+        // Something happened with the file path, try alternative paths
         if (songs == null) {
             filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
             songs = getSongs(filePath);
