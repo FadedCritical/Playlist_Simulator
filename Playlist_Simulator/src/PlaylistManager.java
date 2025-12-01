@@ -10,11 +10,11 @@ public class PlaylistManager implements IPlaylist {
         String filePath = "Playlist_Simulator\\songs_list.csv";
         try {
             this.playlist = getPlaylist(filePath);
-            if (this.playlist == null) {
+            if (this.playlist.getFirst() == null) {
                 filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
                 this.playlist = getPlaylist(filePath);
             }
-            if (this.playlist == null) {
+            if (this.playlist.getFirst() == null) {
                 filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
                 this.playlist = getPlaylist(filePath);
             }
