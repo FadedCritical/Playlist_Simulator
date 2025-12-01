@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        String filePath = "Playslist_Simulator\\songs_list.csv";
+        String filePath = "Playlist_Simulator\\songs_list.csv";
         ArrayList<Song> songs = getSongs(filePath);
         for (Song song : songs) {
             System.out.println(song.toString());
