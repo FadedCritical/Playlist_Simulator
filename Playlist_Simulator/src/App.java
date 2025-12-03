@@ -12,5 +12,8 @@ public class App {
         for (int i = 0; i < playlistManager.getSize(); i++) {
             playlistManager.getSong(i).forEach(song -> System.out.println(song));
         }
+        playlistManager.removeSong("MidnightEcho");
+
+        playlistManager.addSong(new Song ("BabyShark", 120, "Pinkfong", "Kids"));
     }
 }
