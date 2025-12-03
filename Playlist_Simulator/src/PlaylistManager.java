@@ -46,6 +46,10 @@ public class PlaylistManager implements IPlaylist {
         return list;
     }
 
+    public int getSize() {
+        return playlist.size();
+    }
+
     private Song getSongByName(String songName) {
         for (Song song : playlist) {
             if (song.GetSongName().equals(songName)) {
