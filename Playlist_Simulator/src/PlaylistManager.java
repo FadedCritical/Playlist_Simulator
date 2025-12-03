@@ -10,14 +10,18 @@ public class PlaylistManager implements IPlaylist {
         String filePath = "Playlist_Simulator\\songs_list.csv";
         try {
             this.playlist = getPlaylist(filePath);
-            if (this.playlist.getFirst() == null) {
-                filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
-                this.playlist = getPlaylist(filePath);
-            }
-            if (this.playlist.getFirst() == null) {
-                filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
-                this.playlist = getPlaylist(filePath);
-            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+        try {
+            filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
+            this.playlist = getPlaylist(filePath);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+        try {
+            filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
+            this.playlist = getPlaylist(filePath);
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         }
@@ -86,5 +90,4 @@ public class PlaylistManager implements IPlaylist {
             System.out.println("Error saving playlist: " + e.getMessage());
         }
     }
-
 }
