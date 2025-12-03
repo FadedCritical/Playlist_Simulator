@@ -5,22 +5,22 @@ import java.util.Scanner;
 
 public class PlaylistManager implements IPlaylist {
     private ArrayList<Song> playlist;
+    private String filePath = "Playlist_Simulator\\songs_list.csv";
 
     public PlaylistManager()  {
-        String filePath = "Playlist_Simulator\\songs_list.csv";
         try {
             this.playlist = getPlaylist(filePath);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
+            System.out.println("File not found: " + e.getMessage() + "\nTrying alternative paths...");
         }
         try {
-            filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
+            this.filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
             this.playlist = getPlaylist(filePath);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
+            System.out.println("File not found: " + e.getMessage() + "\nTrying alternative paths...");
         }
         try {
-            filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
+            this.filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
             this.playlist = getPlaylist(filePath);
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
