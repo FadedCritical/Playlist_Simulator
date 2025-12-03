@@ -13,5 +13,7 @@ public class App {
             playlistManager.getSong(i).forEach(song -> System.out.println(song));
         }
         playlistManager.removeSong("MidnightEcho");
+
+        playlistManager.addSong(new Song ("BabyShark", 120, "Pinkfong", "Kids"));
     }
 }
