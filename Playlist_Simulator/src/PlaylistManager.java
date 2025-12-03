@@ -46,14 +46,23 @@ public class PlaylistManager implements IPlaylist {
         return list;
     }
 
+    private Song getSongByName(String songName) {
+        for (Song song : playlist) {
+            if (song.GetSongName().equals(songName)) {
+                return song;
+            }
+        }
+        return null;
+    }
+
     @Override
     public void addSong(Song song) {
         playlist.add(song);
     }
 
     @Override
-    public void removeSong(Song song) {
-        playlist.remove(song);
+    public void removeSong(String songName) {
+        playlist.remove(getSongByName(songName));
     }
 
     @Override
