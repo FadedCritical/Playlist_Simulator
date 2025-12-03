@@ -12,5 +12,6 @@ public class App {
         for (int i = 0; i < 5; i++) {
             playlistManager.getSong(i).forEach(song -> System.out.println(song));
         }
+        playlistManager.removeSong("MidnightEcho");
     }
 }

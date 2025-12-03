@@ -58,11 +58,13 @@ public class PlaylistManager implements IPlaylist {
     @Override
     public void addSong(Song song) {
         playlist.add(song);
+        savePlaylist(filePath);
     }
 
     @Override
     public void removeSong(String songName) {
         playlist.remove(getSongByName(songName));
+        savePlaylist(filePath);
     }
 
     @Override
