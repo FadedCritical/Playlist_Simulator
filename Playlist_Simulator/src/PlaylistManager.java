@@ -14,13 +14,13 @@ public class PlaylistManager implements IPlaylist {
             System.out.println("File not found: " + e.getMessage() + "\nTrying alternative paths...");
         }
         try {
-            this.filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
+            if (this.playlist == null ) this.filePath = "Playlist_Simulator\\Playlist_Simulator\\songs_list.csv";
             this.playlist = getPlaylist(filePath);
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage() + "\nTrying alternative paths...");
         }
         try {
-            this.filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
+            if (this.playlist == null ) this.filePath = "Playlist_Simulator/Playlist_Simulator/songs_list.csv";
             this.playlist = getPlaylist(filePath);
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
